@@ -1,0 +1,85 @@
+
+docker ps
+docker ps -a
+docker images
+docker debug <container id or name>
+docker logs <container id or name>
+docker inspect <conatiner id or name>
+docker top 
+docker debug <conatiner id or name>
+docker exec -it <container_name_or_id> /bin/bash--->enter into docker container
+docker restart <container_name_or_id>
+docker stats <container_name_or_id>-->monitor CPU,memory Usage.
+docker kill <container_name_or_id>
+docker restart <container_name_or_id>
+docker stop <container_name_or_id>
+docker rm <container_name_or_id>
+docker -rmi <image-name>
+docker ps -q-->show only containers id
+
+
+
+
+sudo docker build -t my-node-app .       tags images name
+sudo docker run -d -p 8081:8080 my-node-app           here 8081 is forwarding port my-node-app is container name
+sudo docker exec -d my-node-app /bin/sh
+docker stop my-nginx-container
+docker rm my-nginx-container
+docker inspect my-image
+docker inspect my-container
+docker logs <container_name_or_id>
+docker rm -f <container_name_or_id>
+docker rmi -f <image_name_or_id>
+docker tag <local_image_name>:<tag> <registry_hostname>/<username>/<repository_name>:<tag>    push thwm
+docker tag myapp:latest docker.io/myusername/myapp:latest
+docker push <registry_hostname>/<username>/<repository_name>:<tag>
+docker push docker.io/myusername/myapp:latest
+docker network inspect <network_name_or_id>
+docker volume
+Docker volumes securely store application files and data.
+They ensure data persistence beyond the container's lifecycle.
+In case of container failure, data stored in volumes remains accessible and recoverable.
+docker compose.yaml
+network, volume, service, is webserver or database
+network
+Bridge: Default choice for most applications needing network isolation.
+Host: Use when performance is critical and network isolation isn't a concern.
+None: Use sparingly for special cases where no networking is needed.
+# 1. FROM: Sets the base image for subsequent instructions
+FROM ubuntu:20.04
+# 2. LABEL: Adds metadata to the image
+LABEL maintainer="yourname@example.com"
+# 3. RUN: Executes a command and creates a layer with the result
+RUN apt-get update && apt-get install -y nginx
+# 4. COPY: Copies files from the host system into the container
+COPY index.html /var/www/html/
+# 5. ADD: Similar to COPY but can also extract tar files and fetch from URLs
+ADD https://example.com/somefile.tar.gz /tmp/
+# 6. WORKDIR: Sets the working directory for subsequent instructions
+WORKDIR /var/www/html
+# 7. CMD: Provides a default command to run when the container starts
+CMD ["nginx", "-g", "daemon off;"]
+# 8. ENTRYPOINT: Configures a container to run as an executable
+ENTRYPOINT ["nginx"]
+# 9. ENV: Sets environment variables
+ENV ENVIRONMENT=production
+# 10. EXPOSE: Documents the port on which the container listens
+EXPOSE 80
+# 11. VOLUME: Creates a mount point with the specified path and marks it as holding externally mounted volumes from native host or other containers
+VOLUME /var/www/html
+# 12. USER: Sets the user name or UID to use when running the image
+USER www-data
+# 13. ARG: Defines a variable that users can pass at build-time to the builder
+ARG build_version=1.0
+# 14. ONBUILD: Adds a trigger instruction to the image that will be executed when the image is used as a base for another build
+ONBUILD RUN echo "This will run when the image is used as a base image"
+
+
+
+
+
+
+
+
+
+
